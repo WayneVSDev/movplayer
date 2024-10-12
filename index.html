@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOV Video Player</title>
+</head>
+<body>
+    <video id="movPlayer" width="640" height="360" controls>
+        <source src="pox.MOV" type="video/quicktime">
+        Your browser does not support the video tag or the file format of this video.
+    </video>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var video = document.getElementById('movPlayer');
+            
+            // Check if the browser can play MOV files
+            if (video.canPlayType('video/quicktime')) {
+                console.log('This browser supports MOV playback');
+            } else {
+                console.log('This browser does not support MOV playback');
+                // You could add fallback behavior here, like displaying a message or loading an alternative format
+            }
+
+            // Add event listeners for video
+            video.addEventListener('play', function() {
+                console.log('Video started playing');
+            });
+
+            video.addEventListener('pause', function() {
+                console.log('Video paused');
+            });
+
+            video.addEventListener('ended', function() {
+                console.log('Video playback ended');
+            });
+        });
+    </script>
+</body>
+</html>
